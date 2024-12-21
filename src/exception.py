@@ -1,5 +1,5 @@
 import sys                #Any exception that gets detected, that exception's information is available within the 'sys' library. What type of exception has occured will be explained to us by this sys library. Using this, we can also traceback where the exception has occured
-import logging 
+from src.logger import logging 
 
 def error_message_detail(error, error_detail:sys):              #Whenever an exception gets raised, this is the custom error message that I want to be pushed on my console
               _, _, exc_tb = error_detail.exc_info()            #error_detail is an instance of sys. sys has an attribute exc_info that returns three pieces of information: exception type, exception value and the point in the program where the exception occured. Not interested in the first 2 things, and only saving the third info in the exc_tb
@@ -16,5 +16,6 @@ class CustomException(Exception):
         def __str__(self):
                 return self.error_message
  
+
 
 
