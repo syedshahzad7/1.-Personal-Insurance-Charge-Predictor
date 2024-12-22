@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import DataTransformation, DataTransformationConfig
 
 #defining a class for inputs to the ingestion module
 @dataclass                      # -> @dataclass decorator is a shortcut to make a class that just stores some information. It eliminates the need to create a constructor for your class. You can directly create your class's attributes without having to define a constructor (def __init__)
@@ -57,7 +58,10 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformation(train_data, test_data)
 
         
 
