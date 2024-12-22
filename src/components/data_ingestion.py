@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformation, DataTransformationConfig
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 
 #defining a class for inputs to the ingestion module
 @dataclass                      # -> @dataclass decorator is a shortcut to make a class that just stores some information. It eliminates the need to create a constructor for your class. You can directly create your class's attributes without having to define a constructor (def __init__)
@@ -61,7 +62,10 @@ if __name__ == "__main__":
     train_data, test_data = obj.initiate_data_ingestion()
 
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data, test_data)
+    
+    modeltrainer = ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
 
         
 

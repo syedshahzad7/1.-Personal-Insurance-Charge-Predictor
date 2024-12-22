@@ -114,7 +114,7 @@ class DataTransformation:
                 obj = preprocessing_obj
             )
 
-            #Finally, this module returns the preprocessed training, testing array along with the preprocessor object file path.
+            #Finally, this module returns the preprocessed training, testing array along with the preprocessor object file path. Returning preprocessor object file path is optional. We are not really using it anywhere, so you can skip it if you want.
             return (
                 train_arr,
                 test_arr,
