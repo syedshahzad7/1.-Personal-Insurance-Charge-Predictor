@@ -1,0 +1,79 @@
+<!-- This is the form that the user will fill to make predictions about their personal insurance charge -->
+
+<html>
+<body>
+    <div class="login">
+       <h1>PERSONAL INSURANCE CHARGE PREDICTOR</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Personal Insurance Charge Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Sex</label>
+            <select class="form-control" name="sex" placeholder="Enter you Sex" required>
+                <option class="placeholder" selected disabled value="">Select your Sex</option>
+                <option value="male">
+                    Male
+                </option>
+                <option value="female">
+                    Female
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Smokes</label>
+            <select class="form-control" name="smokes" placeholder="Do you smoke?" required>
+                <option class="placeholder" selected disabled value="">Select Smokes?</option>
+                <option value="yes">
+                    Yes
+                </option>
+                <option value="no">
+                    No
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Region</label>
+            <select class="form-control" name="region"
+                placeholder="Enter you US Region" required>
+                <option class="placeholder" selected disabled value="">Select Region</option>
+                <option value="northeast">
+                    northeast
+                </option>
+                <option value="northwest">
+                    northwest
+                </option>
+                <option value="southeast">
+                    southeast
+                </option>
+                <option value="southwest">
+                    southwest
+                </option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="number" name="age"
+                placeholder="Enter your Age" min='0' max='120' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Body Mass Index</label>
+            <input class="form-control" type="number" name="bmi"
+                placeholder="Enter your BMI" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Children</label>
+            <input class="form-control" type="number" name="children"
+                placeholder="Enter the number of children in your household" min='0' max='20' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Personal Insurance Charge" required />
+        </div>
+    </form>
+    <h2>
+       Your estimated Personal Insurance Charge is {{results}}
+    </h2>
+   <body>
+</html>
